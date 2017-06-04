@@ -1,0 +1,6 @@
+-Add motion system
+-Add emotion system
+-Add ability to add more objects?
+
+
+-Check result of failed NewMem?
