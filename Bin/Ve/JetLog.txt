@@ -1,0 +1,39 @@
+Jet Build Version 1.0 beta 2 - Compiled at 08:32:32 on Feb 27 2001.
+
+Begin:
+? 000024A8 Warn   0:00.0 TaskManager     : Adding Task: JETRenderKernel
+? 000024A8 Warn   0:01.4 TaskManager     : Adding Task: InputObserverSystem
+? 000024A8 Warn   0:39.3 TaskManager     : Exiting Main Update
+? 000024A8 Warn   0:39.3 TaskManager     : Shutting Down Task: InputObserverSystem
+? 000024A8 Warn   0:39.3 TaskManager     : Shutting Down Task: JETRenderKernel
+? 000024A8 Warn   0:39.3 TaskManager     : Shutting Down Task: Frame End
+? 000024A8 Warn   0:39.3 TaskManager     : Shutting Down Task: VETask
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.3 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 000024A8 Warn   0:39.7 TaskManager     : Removing Task: JETRenderKernel
+? 000024A8 Warn   0:39.7 TaskManager     : Shutting Down Task: ResourceSystem
+? 000024A8 Warn   0:39.7 TaskManager     : Shutting Down Task: Log
+? 000024A8 Warn   0:39.7 TaskManager     : Removing Task: Frame End
+? 000024A8 Warn   0:39.7 TaskManager     : Removing Task: InputObserverSystem
+? 000024A8 Warn   0:39.7 TaskManager     : Removing Task: VETask
+? 000024A8 Warn   0:39.8 TaskManager     : Removing Task: ResourceSystem
+? 000024A8 Warn   0:39.8 TaskManager     : Removing Task: Log
+End.

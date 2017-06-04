@@ -1,0 +1,23 @@
+Jet Build Version 1.0 beta 2 - Compiled at 08:32:32 on Feb 27 2001.
+
+Begin:
+? FFFD4451 Warn   0:00.0 TaskManager     : Adding Task: JETRenderKernel
+? FFFD4451 Warn   0:00.6 TaskManager     : Adding Task: InputObserverSystem
+? FFFD4451 Warn   0:00.6 TaskManager     : Adding Task: Interface
+? FFFD4451 Warn   0:01.2 ResourceSystem  : Resource: DefaultBackground.tga not found in Resources
+? FFFD4451 Warn   0:30.1 TaskManager     : Exiting Main Update
+? FFFD4451 Warn   0:30.1 TaskManager     : Shutting Down Task: Interface
+? FFFD4451 Warn   0:30.1 TaskManager     : Shutting Down Task: InputObserverSystem
+? FFFD4451 Warn   0:30.1 TaskManager     : Shutting Down Task: JETRenderKernel
+? FFFD4451 Warn   0:30.1 TaskManager     : Shutting Down Task: Frame End
+? FFFD4451 Warn   0:30.1 TaskManager     : Shutting Down Task: ModelPreviewTask
+? FFFD4451 Warn   0:30.1 TaskManager     : Removing Task: Interface
+? FFFD4451 Warn   0:30.1 TaskManager     : Removing Task: InputObserverSystem
+? FFFD4451 Warn   0:30.2 TaskManager     : Removing Task: JETRenderKernel
+? FFFD4451 Warn   0:30.2 TaskManager     : Shutting Down Task: ResourceSystem
+? FFFD4451 Warn   0:30.2 TaskManager     : Shutting Down Task: Log
+? FFFD4451 Warn   0:30.2 TaskManager     : Removing Task: Frame End
+? FFFD4451 Warn   0:30.2 TaskManager     : Removing Task: ModelPreviewTask
+? FFFD4451 Warn   0:30.2 TaskManager     : Removing Task: ResourceSystem
+? FFFD4451 Warn   0:30.2 TaskManager     : Removing Task: Log
+End.

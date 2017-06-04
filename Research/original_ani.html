@@ -1,0 +1,667 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body>
+
+<h2>Title: Altiverse Animation System<br>
+Authors: Gedalia Pasternak (contributions by Becca Abensur and Janak Parekh)<br>
+Created: 5/26/99<br>
+Last modified: <!--[if supportFields]><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>SAVEDATE \@ &quot;MMMM d, yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span><![endif]-->
+November 1, 2000</h2>
+<h3>To Do:</h3>
+<p class="MsoNormal" style="text-indent:.5in"><b style="mso-bidi-font-weight:
+normal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+Arial">A long exegesis on the nature of the animation system, specifically going
+through how to do make a Hierarchal Fuzzy State Machine (HfuSM pronounced
+Hi-Fuzzy for simplicities sake) that would procedurally create the body language
+from basic primitives.<o:p>
+</o:p>
+</span></b></p>
+<p class="MsoNormal" style="mso-outline-level:1"><b style="mso-bidi-font-weight:
+normal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+Arial"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Isolate into compound states and primitives.<o:p>
+</o:p>
+</span></b></p>
+<h1>Animation Controllers</h1>
+<p class="MsoBodyText" style="text-indent:.5in">There are a number of different
+places where the events that control the gesture/animation system can come from:<b><o:p>
+</o:p>
+</b></p>
+<p><font size="5">Movement<br>
+&nbsp;&nbsp; </font>When the user moves the animation system is required to keep
+track of the users physical state and issue the relevant events.<span style="mso-spacerun: yes">&nbsp;
+</span>Looking, walking forward, turning around, ducking, all cause either
+animation data to play or a targeted real-time IK solution to be calculated.</p>
+<p><font size="5">Replication<br>
+</font>&nbsp;&nbsp;&nbsp;&nbsp; Another obvious place where gestures can come
+from is the replication of events from other users via the server.<span style="mso-spacerun: yes">&nbsp;
+</span>See the replication design document for further details on replication
+issues and methodology.</p>
+<p><font size="5">Items, Scripts and other triggers<br>
+</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Depending on the rules of a
+space, an item or script should be able to induce another avatar to change
+state. This seems most interesting in the case of emotional state. For example
+fear, this might be as simple as having an “if state = = fear do x” clause
+in the finite state machine, which could be activated either by someone clicking
+fear or getting an event from the event system that triggers a fearful attitude.
+These could eventually be used to establish more than just a facial change, the
+fear state could last <i>x</i> amount of time and change <i>y </i>variables
+during that time. By doing this we facilitate role-playing or force role-playing
+for appropriate environments.<span style="mso-spacerun: yes">&nbsp;</span></p>
+<p><font size="5">Mirror<br>
+</font>&nbsp;&nbsp;&nbsp; Shows users what the face of their character avatar,
+allowing the user to see as well as change their current emotional state. The
+Mirror actually consists of two components. One is a docked UI plug-in that
+shows the user’s face and current facial expression. The UI plug-in will also
+have a menu system that allows the user to change their current mood. The second
+component is an autonomous agent that automates some of the expressions of an
+avatar. If an individual specifies their character as being “happy”, this
+agent would then attempt to combine (over time) the basic primitives that would
+constitute a “happy” avatar. This both simplifies the user’s interface in
+expressing emotions and makes the real-life simulation much more elaborate.</p>
+      <p class="bodytext" style="text-indent:0in;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:margin;mso-element-top:.1pt;mso-height-rule:
+  exactly"><span style="mso-bidi-font-weight:bold">In the first column, the
+      first row represents the various moods as well as the ability to change
+      them.<o:p>
+      </o:p><br>
+      The second row represents
+      specific gestures; these could represent facial expressions, body
+      expressions or a combination of the two.<o:p>
+      </o:p><br>
+      </span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">The last two
+      rows are fairly arbitrary at the moment, the first icon representing an
+      attack mode, while the second icon represents a personal teleporter.<o:p>
+      &nbsp;
+      </span></p>
+<p><b><img border="0" src="images/mockup.jpg"></b></p>
+<p class="bodytext" style="text-indent:0in">&nbsp;</p>
+<p class="bodytext" align="center" style="text-align:center"><b style="mso-bidi-font-weight:
+normal">&nbsp;<o:p>
+</o:p>
+</b></p>
+<p class="bodytext" align="center" style="text-align:center;text-indent:0in"><b style="mso-bidi-font-weight:normal">Flow
+Chart for</b><b style="mso-bidi-font-weight:
+normal"><span style="layout-grid-mode:both"> a few of the mood states</span><o:p>
+</o:p>
+</b></p>
+<p class="MsoBodyText" style="text-indent:.5in"><!--[if gte vml 1]><o:wrapblock><v:shape
+  id="_x0000_s1026" type="#_x0000_t75" style='position:absolute;left:0;
+  text-align:left;margin-left:49.05pt;margin-top:6pt;width:281.7pt;height:269.6pt;
+  z-index:1'>
+  <v:imagedata src="../../../../../DOCUME~1/Gedalia/LOCALS~1/Temp/msoclip1/01/clip_image003.wmz"
+   o:title=""/>
+  <v:textbox style='mso-next-textbox:#_x0000_s1026'/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="Visio.Drawing.5"
+  ShapeID="_x0000_s1026" DrawAspect="Content" ObjectID="_1035235674">
+ </o:OLEObject>
+ <![endif]><![endif]-->
+<span style="mso-ignore:vglayout">
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="65" height="0"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><img width="376" height="359" src="images/wpe9.gif" v:shapes="_x0000_s1026"></td>
+  </tr>
+</table>
+</span><!--[if gte vml 1]></o:wrapblock><![endif]-->
+<br style="mso-ignore:vglayout" clear="ALL">
+Obviously the logic for the change state machinery can be simpler for a user
+avatar then for an AI, since the mirror has a person sitting behind the state
+machine controlling it. We can rely on their memory and their attitude to
+control the avatar in a logical manner; this is based on the Eliza principle.<span style="mso-spacerun: yes">&nbsp;
+</span>However, we will still need a FuSM for the lower-level moods, i.e. happy,
+sad or fear, to create variety and automate tedium.
+<p class="MsoBodyText2">(GP Note: this is the autonomous agent part, and this is
+effectively what Juanita was studying in Snow Crash)</p>
+<h2>Information Driving the Mirror</h2>
+<p class="MsoBodyText" style="text-indent:.5in">There are a lot of hidden cues
+that an individual is not consciously aware of. Things like how often an
+individual blinks when at rest versus talking and the and at what point while
+talking is an individual more likely to blink. These will probably turn into a
+fairly fixed probabilistic formula for most avatars.</p>
+<p class="MsoNormal" style="mso-outline-level:3"><span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt">Lower Level State Machines<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="text-indent:.25in">Altiverse will probably need to
+hire an expert on human facial expressions and emotional state for this section
+of the project. These variables will probably be used as weights in the HFuSM. A
+simulation that this would be appropriate for is flirting, which winds up
+begging the question: What do people do while flirting? Some of the states would
+be:</p>
+<ul>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-align:justify;text-indent:-.25in;
+mso-list:l5 level1 lfo2;tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">make
+    eye contact</span><span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:Symbol"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;
+    </span></span></li>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-align:justify;text-indent:-.25in;
+mso-list:l5 level1 lfo2;tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">bat
+    eyelashes <o:p>
+    </o:p>
+    </span></li>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-align:justify;text-indent:-.25in;
+mso-list:l5 level1 lfo2;tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">smile
+    <o:p>
+    </o:p>
+    </span></li>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-align:justify;text-indent:-.25in;
+mso-list:l5 level1 lfo2;tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">toss
+    hair <o:p>
+    </o:p>
+    </span></li>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo2;
+tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Fidget<o:p>
+    </o:p>
+    </span></li>
+  <li>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo2;
+tab-stops:list .5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Footsee
+    (this would require a bit more of immersive hardware setup then we currently
+    foresee). <o:p>
+    </o:p>
+    </span></li>
+</ul>
+<p class="bodytext">When a user creates their avatars, we will be able to give
+the user the ability to customize some of the weights or completely turn them
+off.</p>
+<p class="MsoBodyText" style="text-indent:.5in"><b style="mso-bidi-font-weight:
+normal">&nbsp;<o:p>
+</o:p>
+</b></p>
+<h1>Other controllers</h1>
+<h2><a name="_Toc461542780">Task based animations</a></h2>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count: 1; mso-bookmark: _Toc461542780">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt; mso-bookmark: _Toc461542780">Task
+based animations are another way of establishing a logical hierarchy for
+animations to play within. For the example picking up an object, this could be
+broken down into its component sub tasks/animations as:</span></p>
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-align:justify"><span style="mso-bookmark:
+_Toc461542780"><span style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:Symbol"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;</span></span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Walk
+    to proximity of objects.<o:p>
+    </o:p>
+    </span></span></li>
+  <li>
+    <p class="MsoNormal" style="text-align:justify"><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt; mso-bookmark: _Toc461542780">Get
+    into the right position to pick up object.<o:p>
+    </o:p>
+    </span></li>
+  <li>
+    <p class="MsoNormal" style="text-align:justify"><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt; mso-bookmark: _Toc461542780">Pick
+    up the object. <o:p>
+    </o:p>
+    </span></li>
+</ul>
+<p class="MsoBodyText"><span style="mso-bookmark:_Toc461542780">&nbsp;&nbsp;&nbsp;
+Motivate actually excels of this type of task based animation and planning,
+UnrealScript also has facilities for doing this but probably not as advanced.
+Task based animations are actually more necessary for the automation of AI’s
+that it is for a human driven actor.<span style="mso-spacerun: yes">&nbsp; </span>The
+actual animation is just the visual representation of the artificial
+intelligence planning and executing a task.</span><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt; mso-bookmark: _Toc461542780"><o:p>
+</o:p>
+</span></p>
+<h2>Targeted interactive animations</h2>
+<h3>Background</h3>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">The traditional
+paradigm for working in three dimensions with objects is very often seen in 3D
+shooters. The controls are not extremely intuitive but can be accessed by the
+keyboard and any traditional input device. Interacting with objects is usually
+accomplished by a running over them, the object is then either immediately used
+or in more advanced programs stored in inventory, which can be accessed later.<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="text-align:justify;text-indent:.5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">More
+recently we've seen Trespasser by DreamWorks Interactive, this was DWI's attempt
+to be much more elaborate in its object interaction. They failed miserably. (See
+postmortem in Gamasutra for a complete rundown).<span style="mso-spacerun: yes">&nbsp;
+</span>They attempted to do was make a visible avatar with a user-operated hand
+and a visible upper body, the character was female so that amounted to a pair of
+breasts obstructing the view of the ground. The hand’s IK was done very badly.
+It flailed about and was difficult to control even while standing still. While
+moving it acted as an inverse kinematic chain that attached to the player the
+motions of a player to propagated in a fashion that was aesthetically and
+game-playing wise unappealing. Emulating Trespasser's mistakes does not really
+strike me as being the best thing to do.<span style="mso-spacerun: yes">&nbsp; </span><o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="text-align:justify;text-indent:.5in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">However
+in the case of picking up an object off the table or examining something on a
+bookshelf, what would be acceptable inside a FPS (running over the object) would
+not look right. Beyond that I do not know how evolved graphics engines are at
+this point. Would it be possible to have someone sit down or open a door?
+Obviously collision has been done but we will probably need something much more
+sophisticated for our purposes. Being able to take a target and play animation
+that would be based on the location of your avatar relative to the target. This
+animation would have the avatar interact with the target based upon that
+information. <o:p>
+</o:p>
+</span></p>
+<h3>Current solutions and such?</h3>
+<p class="bodytext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For actions such as <span style="mso-bidi-font-weight:bold">grasping,
+</span><span style="layout-grid-mode:both">sit</span>ting, <span style="layout-grid-mode:both">picking
+up </span>etc, etc. A product named Motivate made by Motion Factory seemed to
+promise a certain amount of these facilities. It couples adding basic
+information to objects that individuals will interact with, such as the shape of
+its handle, with a real-time inverse kinematics solution. In all honesty this is
+really Motivates domain. I have not really seen any other program to do this in
+general manner. The main reason for this is that this is relatively simple
+problem to solve with a robust skeletal system. Which motivate has, however the
+industry has just started moving to skeletal system and until that point the
+solution will be more akin to just allowing a weapon to be held and not much
+else.<span style="mso-spacerun:
+yes">&nbsp; </span><b>(Note: quite a bit has changed since this document was
+started, Unreal now has a skeletal animation system, Intel and RadGameTools are
+both selling skeletal system SDKs. Rune has a<span style="mso-spacerun: yes">&nbsp;
+</span>Softimage based one. Jeff Lander’s articles in game developer are also
+a good resource to look at. Additionally the 3DSMax opens ource website has an
+app called dejaview that is a stand alone 3d skeletal exporter)</b></p>
+<p class="MsoCommentText" style="text-align:justify"><span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Another issue with targeting is that you are typically interacting with
+someone, hence you would need a target for eye contact or smiling <b><span style="mso-bidi-font-style:
+italic">(Note: this is not necessarily true, for example in the case of a very
+drunk individual. For now however the simulation of extremely drunk individuals
+will be left out of the system</span></b></span><span class="MsoCommentReference"><b><span style="font-size:12.0pt;mso-bidi-font-size:
+8.0pt;display:none;mso-hide:all;mso-bidi-font-style:italic"> but is scriptable
+if the user is so inclined</span></b></span><b><span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-bidi-font-style:italic">).</span></b><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">
+A person could wind up flirting with the wall, which in my opinion would be
+extremely funny but would definitely hurt the verisimilitude of the simulation. <b>(Janak:
+Why prevent this?<span style="mso-spacerun: yes">&nbsp; </span>Hell, we can do
+it in real life.<span style="mso-spacerun: yes">&nbsp; </span>Hell, we do it in
+real life – in front of a glass mirror!<span style="mso-spacerun: yes">&nbsp; </span>To
+rehearse!<span style="mso-spacerun: yes">&nbsp; </span>In fact, we should have
+glass mirrors in the system in the “practice” environment so people become
+more familiarized with the mirror interface and its effects</b><i>.</i> This
+once again brings up the features of motivate or at least having a more robust
+animation system.<o:p>
+</o:p>
+</span></p>
+<p class="bodytext">&nbsp;<o:p>
+</o:p>
+</p>
+<h1>Random Thoughts</h1>
+<h2>Basic Types of Animations</h2>
+<p class="MsoBodyText">To steal Motivates categorization:</p>
+<ul>
+  <li>
+    <p class="MsoBodyText">Locomotion skills – move from one place to another</li>
+  <li>
+    <p class="MsoBodyText">Manipulation skill – manipulating an object via an
+    abstract handle, I’ve generalized this even further into a target based
+    animation, where the target might just be the general location where the
+    action is directed towards.<span style="mso-spacerun: yes">&nbsp; </span>I
+    should point out the in a situation such as climbing a ladder or a rope of
+    the distinction between manipulation and locomotion starts getting blurry.<span style="mso-spacerun: yes">&nbsp;&nbsp;</span></li>
+  <li>
+    <p class="MsoBodyText">Basic skill - what we are calling a gesture</li>
+</ul>
+<h2>Structure of Avatar Skeleton</h2>
+<ul>
+  <li>
+    <p class="bodytext">Aprox 22 muscles for face</li>
+  <li>
+    <p class="bodytext">Aprox 17 joints for body not counting fingers and toes</li>
+</ul>
+<h2>Blending Animations</h2>
+<p class="bodytext">The fact that we are going to be using a hierarchal skeletal
+system should facilitate our abilities to make more complex animations at
+runtime.<span style="mso-spacerun: yes">&nbsp; </span>We should be able to
+superposition data both in a numeric sense, by literally adding one set of
+contraction/angle vectors to another, or in a joint sense, allowing the lower
+level bones to play different data then the main skeleton. In addition, we have
+structured animation data, so it should be possible to store an animation such
+as “wave” not just as a full body animation but just an arm animation. This
+would allow not exactly superposition but the replacement of one animation’s
+arm data with another animation’s arm data at runtime. For example, we could
+combine two dissimilar animations achieving a combined “walk” with a
+“wave” as well as a “smile” at the same time. A few problems with this:
+what if the person isn’t walking - we don't really want them to be perfectly
+still except for the wave; also, by separating out the hierarchy and playing
+different animations on different parts of the skeleton, we increase the risk of
+animations where different parts of the avatar start interfering with each other
+and cause intra-avatar collisions, lowering the realism of the simulation.</p>
+<h2>Facial Animation Blending</h2>
+<p class="MsoNormal"><b><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Note
+some of this has been supplanted by the implemented facial animation system</span></b></p>
+<p class="MsoBodyText3" style="text-align:justify;text-indent:.5in">The facial
+animation system will have to be able to overlay the visual representation of
+the phonemes with the emotional state of the avatar in any given time.<span style="mso-spacerun: yes">&nbsp;
+</span>This should be able to be done via straight superposition of the data as
+long as there are well-defined constraint limiters on the muscles.<span style="mso-spacerun: yes">&nbsp;
+</span>Moreover, by restricting to one facial expression and one phoneme
+expression we can allow for a wide variety of facial animations yet at the same
+time keep the system tractable.<span style="mso-spacerun: yes">&nbsp; </span>The
+intuition behind this is that mood and speech largely determines facial state.</p>
+<h2><a style="mso-comment-reference:JJP_1">Duration of gestures</a></h2>
+<p style="text-align:justify"><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>We
+probably offer the ability to either slowdown or speed up the playback of a
+gesture by changing the rate of interpolation of the data, as well as the option
+to loop the gesture. Note I’m
+talking about a simple fixed gesture, one that the consists of a fixed length
+set of biped based key frames. Janak: Hmmm…
+are we assuming all gestures/moods have the same duration rules? Maybe we should just come up with two or three duration rules – i.e.
+fixed for X time, decay over Y time, and immediate (but the last even could be
+fixed for {VERY SMALL} time). Then
+we can enumerate sample gestures and moods and give examples that fit inside our
+duration structure. Scripting can simplify a lot of this.</p>
+<h2>Duration of moods</h2>
+<h2>Personal preferences differing from psychologist researched FuSM</h2>
+<p class="MsoBodyText" style="text-indent:.5in">Another obvious problem with
+this is that people act very different when they are doing high-level complex
+behaviors. Generalizing these actions into one prototypical behavior will be
+problematic. Back to our high level task of flirting, (bit transfixed aren’t
+we), when the user selects “flirting” and a target, the avatar would
+automatically enter into a flirty mood. However, what one person describes as
+flirting may not be remotely what another describes as flirting, me versus the
+guys in the village.<span style="mso-spacerun: yes">&nbsp; </span>A way to solve
+this would be to customize the FuSM, so that the user could select which actions
+constitute as flirting or adjust the probabilities of different sub actions. Or
+just have a few prototypical FuSM a few for men a few for women. <b>(GP Note:
+This is a problem that emerges in the lower-level motion cap (mocap) data, you
+don’t want things to look the same. I currently see <i>no solution</i> to this
+except for a real-time video analysis.0</b><b><o:p>
+</o:p>
+</b></p>
+<h2>Other stuff</h2>
+<p class="MsoNormal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Currently,
+animations that are responses to events are called <b>gestures</b>. <a style="mso-comment-reference:JJP_2">But
+since I can think of all of the animations as being responses to events, I’m
+having a problem not lumping them together</a></span>. <span style="font-size:12.0pt;mso-bidi-font-size:10.0pt"><o:p>
+</o:p>
+</span><b style="mso-bidi-font-weight:normal">&nbsp;<o:p>
+</o:p>
+</b></p>
+<h1><b>Animation primitives and states<o:p>
+</o:p>
+</b></h1>
+<h2>Facial Primitives</h2>
+<p class="MsoNormal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Each
+of these has a muscle contraction vector that defines the state<o:p>
+</o:p>
+</span></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:.25in;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt">
+  <tr style="height:14.35pt">
+    <td width="566" colspan="2" valign="top" style="width:5.9in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:14.35pt">
+      <h2 style="margin:0in;margin-bottom:.0001pt"><span style="mso-bidi-font-weight:
+  bold">Basic expressions<o:p>
+      </o:p>
+      </span></h2>
+    </td>
+  </tr>
+  <tr style="height:98.5pt">
+    <td width="283" valign="top" style="width:2.95in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:98.5pt">
+     Smile      <br>
+      Frown      <br>
+      Fear      <br>
+      Look angry      <br>
+      Disgust      <br>
+      mirrorDisgust      <br>
+      openmouth      </span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">      </span></td>
+    <td width="283" valign="top" >
+      Left_Blink
+      <br>
+      Right_Blink      <br>
+      close_eyes      <br>
+      Pout
+      <br>
+      Raise Eyebrows      <br>
+      Suspicious      <br>
+      Surprise &nbsp;<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt"><o:p>
+      </o:p>
+      </span></td>
+  </tr>
+  <tr style="height:16.15pt">
+    <td width="566" colspan="2" valign="top" style="width:5.9in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:16.15pt"><b><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Phenomes
+      (based on lispinc)<o:p>
+      </o:p>
+      </span></b></td>
+  </tr>
+  <tr style="height:51.75pt">
+    <td width="283" valign="top" style="width:2.95in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:51.75pt">
+  bump<br>
+      cage<br>
+      church   <br>
+      earth      <br>
+      eat      <br>
+      fave      <br>
+      if
+      <br>
+      new
+      </td>
+    <td width="283" valign="top" style="width:2.95in;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:51.75pt">
+    oat      <br>
+      ox      <br>
+      Roar      <br>
+      size      <br>
+      though      <br>
+      told      <br>
+      wet      </td>
+  </tr>
+  <tr style="height:16.6pt">
+    <td width="566" colspan="2" valign="top" style="width:5.9in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:16.6pt">
+      <h2 style="margin:0in;margin-bottom:.0001pt"><span style="mso-bidi-font-weight:
+  bold">Head motions<o:p>
+      </o:p>
+      </span></h2>
+    </td>
+  </tr>
+  <tr style="height:41.25pt">
+    <td width="283" valign="top" style="width:2.95in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:41.25pt">
+
+     turnleft<br>
+     turnright<br>
+      tiltright
+    </td>
+    <td width="283" valign="top" style="width:2.95in;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:41.25pt">
+      <p class="MsoNormal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">tiltleft<o:p>
+      </o:p><br>
+      bendforward<o:p>
+      </o:p><br>
+      bendbackward<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:13.0pt">
+    <td width="566" colspan="2" valign="top" style="width:5.9in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:13.0pt">
+      <h2 style="margin:0in;margin-bottom:.0001pt"><span style="mso-bidi-font-weight:
+  bold">Compound Expressions<o:p>
+      </o:p>
+      </span></h2>
+    </td>
+  </tr>
+  <tr style="height:20.6pt">
+    <td width="283" valign="top" style="width:2.95in;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:20.6pt">
+      no<br>
+      skeptical_no<br>
+      laugh<br>
+      look_around
+      </span></p>
+    </td>
+    <td width="283" valign="top" style="width:2.95in;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:20.6pt">
+   yawn<br>
+      whistle<br>
+      wahha<br>
+      roll_head    </p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="margin-left:.25in;text-indent:.25in"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">&nbsp;<o:p>
+ &nbsp;<o:p>
+ &nbsp;<o:p>
+</o:p>
+</span></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:.25in;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt">
+  <tr>
+    <td width="566" colspan="2" valign="top" style="width:5.9in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt">
+      <p><font size="5">Moods</font><span style="mso-spacerun: yes"><font size="5">&nbsp;</font><br>
+      </span>Each of these has fuzzy state machine sitting
+      behind it that references the facial primitives as well as body poses
+      a.k.a. key-frame data.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="283" valign="top" style="width:212.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt">
+    Anger<br>
+      Boredom<br>
+      Confusion<br>
+      Contempt <br>
+      Disgust<br>
+      Afraid<br>
+      Friendl<br>
+      Happy   <br>
+      Pleading</p>
+    </td>
+    <td width="283" valign="top" style="width:212.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt">
+		Sadness<br>
+      Sexy<br>
+      Skepticism<br>
+      Stoic<br>
+      Surprise<br>
+      Suspicion<br>
+      Tired<br>
+      Triumph<br>
+      <b>Others?</b>
+</p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;</span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Major
+question is: <a style="mso-comment-reference:JJP_4">How many of these are
+discrete expressions vs. moods that are conveyed over </a><a style="mso-comment-reference:
+GNP_3"><span style="mso-comment-continuation:4">time</span></a><span style="mso-comment-continuation: 4; mso-comment-reference: GNP_3">.</span></span></p>
+<p class="MsoNormal">GNP Actually I meant in a much more philosophical sense so I stared at a
+      mirror (quick cam) for while)</p>
+<p class="MsoNormal"><span style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt"></o:p>Janak :</span>Well
+      – maybe there’s a way we can combine them somewhat – discrete
+      expressions can be states lasting a time of zero.<span style="mso-spacerun: yes">&nbsp;
+      </span>The system would automatically interpret that as being a immediate
+      wham-bam thing.<span style="mso-spacerun: yes">&nbsp; </span>We could also
+      have a time of –1, which would mean expression presented only if the
+      mouse is clicked.<span style="mso-spacerun: yes">&nbsp; </span>Something
+      like that.&nbsp;</p>
+<h2>Engine Motions</h2>
+<p class="MsoNormal"><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">-That
+we see in the standard library necessary for basic and extend motion and the
+like<o:p>
+</o:p>
+</span></p>
+<h3>Quake:</h3>
+<p class="MsoBodyText" style="margin-left:.5in">Aim/ targeting<br>
+Turn head - left/right/up/down<br>
+Run/Walk forwards/backwards<br>
+Side step - left/right<br>
+Turn<br>
+Jump: forward/back/up/right/left<br>
+Crouch<br>
+Pick up - right hand/left hand<br>
+Die</p>
+<h3><a style="mso-comment-reference:JJP_5">Mortal kombat:</a></h3>
+<p class="MsoNormal" style="text-indent:.5in"><span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt">Basic street fighting punch - left/right arms<o:p>
+</o:p><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Basic street fighting kick - left/right legs<o:p>
+</o:p>
+</span></p>
+<h3>Thief:</h3>
+<p class="MsoBodyText" style="margin-left:.5in">Throw<br>
+Climb (with knees bent, like
+stairs)<br>
+Climb (with hands and feet,
+rope)</p>
+<h3>General user interactivity:</h3>
+<p class="MsoBodyText" style="margin-left:.5in">Bend down (at knees or at back)<br>
+Sit: flat/bent surface<br>
+<span style="font-size:12.0pt;
+mso-bidi-font-size:10.0pt">Looking at something<o:p>
+</o:p><br>
+Looking at someone<o:p>
+</o:p><br>
+Holding something in hand - left/right<o:p>
+</o:p><br>
+Holding something out in front of you - one hand/
+both hands<o:p>
+</o:p><br>
+</span>Lie down<br>
+Wave</p>
+<p class="MsoNormal"><b><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">&nbsp;<o:p>
+</span>Others?</b><span style="font-size:8.0pt;
+display:none;mso-hide:all" class="MsoCommentReference"><o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal"><b><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">Janak:
+Lots and lots of them – we have to get experts to do this – people who are
+familiar with human physiology.<o:p>
+</o:p>
+</span></b></p>
+<p class="MsoNormal">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoCommentText">&nbsp;<o:p>
+ <span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">&nbsp;<o:p>
+</span>
+</p>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+Jet Build Version 1.0 beta 2 - Compiled at 08:32:32 on Feb 27 2001.
+
+Begin:
+? 00003C4C Warn   0:00.0 TaskManager     : Adding Task: JETRenderKernel
+? 00003C4C Warn   0:00.7 TaskManager     : Adding Task: InputObserverSystem
+? 00003C4C Warn   0:33.1 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:33.5 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:38.6 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:39.5 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:40.5 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:41.3 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:43.1 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:45.5 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:46.2 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:49.2 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   0:50.9 Result          : 3 (RES_ANIM_NOT_FOUND) Animation not found
+? 00003C4C Warn   1:39.2 TaskManager     : Exiting Main Update
+? 00003C4C Warn   1:39.2 TaskManager     : Shutting Down Task: InputObserverSystem
+? 00003C4C Warn   1:39.2 TaskManager     : Shutting Down Task: JETRenderKernel
+? 00003C4C Warn   1:39.2 TaskManager     : Shutting Down Task: Frame End
+? 00003C4C Warn   1:39.2 TaskManager     : Shutting Down Task: EmotionDemoTask
+? 00003C4C Warn   1:39.2 Result          : 4 (RES_NO_HOST_SET) No host has been set
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: JETRenderKernel
+? 00003C4C Warn   1:39.3 TaskManager     : Shutting Down Task: ResourceSystem
+? 00003C4C Warn   1:39.3 TaskManager     : Shutting Down Task: Log
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: Frame End
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: InputObserverSystem
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: EmotionDemoTask
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: ResourceSystem
+? 00003C4C Warn   1:39.3 TaskManager     : Removing Task: Log
+End.

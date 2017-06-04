@@ -1,0 +1,176 @@
+// Motion system configuration file
+*TYPE_ID MotionConfig
+*VERSION 1.0
+
+// Motion table sets up motion types, modes and ranges for movement
+*MOTION_TABLE {
+  // The following motion types exist
+  //   Motion Type 0 - Terrestrial
+
+  // terrestrial motion type
+  *MOTION_TYPE {
+    *MOTION_TYPE_ID 0
+	  // The following motion modes exist
+	  //   Motion Mode 0 - linear speed range
+	  //   Motion Mode 1 - nominal speed - speed animation was designed for
+	  //   Motion Mode 2 - angular speed range
+	  //   Motion Mode 3 - altitude range
+	  //   Motion Mode 4 - vertical climbing speed
+	  //   Motion Mode 5 - acceleration range
+	  //   Motion Mode 6 - range of widths from min speed to max speed
+	  //   Motion Mode 7 - range of heights from min speed to max speed
+	  //   Motion Mode 8 - range of lengths from min speed to max speed
+	  //   Motion Mode 9 - deceleration range
+	  //   Motion Mode 10 - linear strafe speed range
+
+	  // default motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        0
+	    *MOTION_MODE_NAME		 "Default"
+	    *MOTION_MODE_ANIMATION "idle_normal.kin"
+	    
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+		  *RANGE 1.2 1.2
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 2 // Angular movement range (deg/s)
+	      *RANGE -180.0 180.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 6 // Width (m)
+		  *RANGE 0.5 0.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 7 // Height (m)
+		  *RANGE 1.8 1.8
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 8 // Length (m)
+	      *RANGE 0.5 0.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 5 // Acceleration (m/s^2)
+	      *RANGE 1.5 1.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 9 // Deceleration (m/s^2)
+	      *RANGE 2.0 2.0
+	    }
+	  }
+
+	  // stand motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        1
+	    *MOTION_MODE_NAME		 "Stand"
+	    *MOTION_MODE_ANIMATION "idle_normal.kin"
+
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 0 // Speed range (m/s)
+		  *RANGE -0.01 0.01
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+		  *RANGE 0.0 0.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 2 // Angular movement range (deg/s)
+	      *RANGE -180.0 180.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 5 // Acceleration (m/s^2)
+	      *RANGE 1.5 1.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 9 // Deceleration (m/s^2)
+	      *RANGE 2.0 2.0
+	    }
+	  }
+
+	  // walk motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        2
+	    *MOTION_MODE_NAME		 "Walk"
+	    *MOTION_MODE_ANIMATION "walk_standard.kin"
+
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 0 // Speed range (m/s)
+		  *RANGE -1.5 2.2
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+		  *RANGE 1.2 1.2
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 2 // Angular movement range (deg/s)
+	      *RANGE -50.0 50.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 5 // Acceleration (m/s^2)
+	      *RANGE 1.5 1.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 9 // Deceleration (m/s^2)
+	      *RANGE 2.0 2.0
+	    }
+	  }
+	  // run motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        3
+	    *MOTION_MODE_NAME		 "Run"
+	    *MOTION_MODE_ANIMATION "run_standard.kin"
+
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 0 // Speed range (m/s)
+		  *RANGE 2.1 7.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+		  *RANGE 4.0 4.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 2 // Angular movement range (deg/s)
+	      *RANGE -10.0 10.0
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 5 // Acceleration (m/s^2)
+	      *RANGE 1.5 1.5
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 9 // Deceleration (m/s^2)
+	      *RANGE 2.0 2.0
+	    }
+	  }
+	  // strafe left motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        4
+	    *MOTION_MODE_NAME	   "StrafeLeft"
+	    *MOTION_MODE_ANIMATION "walk_step_left.kin"
+
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+	      *RANGE -0.6 -0.6
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 10 // Strafe speed range (m/s)
+	      *RANGE -0.6 0.0
+	    }	  
+	  }
+	  // strafe right motion
+	  *MOTION_MODE {
+	    *MOTION_MODE_ID        5
+	    *MOTION_MODE_NAME	   "StrafeRight"
+	    *MOTION_MODE_ANIMATION "walk_step_right.kin"
+
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 1 // Nominal speed (m/s)
+	      *RANGE  0.6  0.6
+	    }
+	    *MOTION_RANGE {
+	      *MOTION_RANGE_ID 10 // Strafe speed range (m/s)
+	      *RANGE 0.0 0.6
+	    }	  
+	  }
+  }
+}
+

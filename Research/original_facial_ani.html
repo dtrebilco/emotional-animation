@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Original thoughts on Facial Animation</title>
+</head>
+
+<body>
+
+<h2>
+ <span style="font-size:12.0pt;mso-bidi-font-size:10.0pt"><b><span style="font-size:13.5pt;font-family:Arial;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">Title: Skeletons for your spineless avatar<br>
+ Author: Gedalia Pasternak<br>
+ Created: May 6, 1999<br>
+ Modified: June 22,1999</span></b></o:p></span>
+</h2>
+<h2><span style="font-size: 12.0pt; mso-bidi-font-size: 10.0pt">&lt;snip&gt;</span><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt"><b><span style="font-size:13.5pt;font-family:Arial;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><br>
+</span></b></span><b><span style="font-size:13.5pt;font-family:Arial">What Biped Lacks:</span></b>
+</h2>
+<p>A good facial animation system</p>
+<p>One question that that I want to addresses: Why does character studio lack a
+facial animation system? it seems like a obvious thing to do. Traditionally
+character animation facial animation has been accomplished via a morph or shape
+animation system . What this means is that the artist would physically transform
+the vertices of a face and then save the information into the object. These
+targets could then be used as weights are superimposed upon each other. That is,
+a face could have a smile and a raised eyebrow stored and the artist mixes them
+together creating compound expression. Muscle simulations would make most
+artists twitch.)</p>
+<p>It works for Jar Jar, why shouldn't we do it? This is a technique that will
+only work on one model because you can't share the topology between two
+dissimilar meshes. There are two possible solutions for our animation system
+conundrum.</p>
+<ol start="1" type="1">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in">We create a shape based
+    animation system. Encoding the various facial transforms and then allow
+    users to alter the basic mesh and create new avatars with the basic
+    expressions hard coded in. This solution seems plausible but really limits
+    the flexibility of the animation system in the avatars.</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in">The second solution and used
+    to create our own type of biped specifically for humanoid faces. This allows
+    any character that is properly set up to share animations with each other as
+    well as interface properly with the system, this seems like a better
+    solution, however not a simple one. What does that imply? There are quite a
+    number of different types of muscles in the face. Fred Park has created a
+    muscle simulation that deals may mainly with the muscles that contract. With
+    this facial expression model one can raise ones eyebrows, smile, frown and
+    furrow the brow.&nbsp; </li>
+</ol>
+<p>The structures necessary for this to work:</p>
+<table border="1" cellpadding="0" width="100%" style="width:100.0%;mso-cellspacing:
+ 1.5pt">
+  <tr>
+    <td width="50%" style="width:50.0%;padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal">Upper facial node</p>
+      <ul type="disc">
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Upper eyelid</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Eyeball</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Lower eyelid</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Frontalis</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Corrugator</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo2;tab-stops:list .5in">Orbicularis Oculi</li>
+      </ul>
+    </td>
+    <td width="50%" style="width:50.0%;padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal">Lower facial node</p>
+      <ul type="disc">
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Tongue node</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Jaw bone</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Labii superioris</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Obricularis Oris</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Zygomatic Major</li>
+        <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo3;tab-stops:list .5in">Mentalis</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-align:justify"><u1:p>
+</u1:p>
+&nbsp;</p>
+<table border="1" cellpadding="0" width="100%" style="width:100.0%;mso-cellspacing:
+ 1.5pt">
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" alt="" style='position:absolute;
+   margin-left:72.5pt;margin-top:0;width:112.5pt;height:174.75pt;z-index:1;
+   mso-wrap-distance-left:0;mso-wrap-distance-top:0;mso-wrap-distance-right:0;
+   mso-wrap-distance-bottom:0;mso-position-horizontal:right;
+   mso-position-horizontal-relative:text;mso-position-vertical-relative:line'
+   o:allowoverlap="f">
+   <v:imagedata src="../../../../../DOCUME~1/Gedalia/LOCALS~1/Temp/msoclip1/01/clip_image001.gif"
+    o:href="../../Technical%20Documents/Design%20Documents/images/faceskel.gif"/>
+   <w:wrap type="square"/>
+  </v:shape><![endif]-->
+      <img width="150" height="233" src="images/wpe3.gif" align="right" v:shapes="_x0000_s1026">The
+      yellow lines indicate muscles. a structure like this will have to be
+      placed as part of the skeleton. so that the facial simulator has something
+      to work with.</p>
+    </td>
+    <td width="52%" style="width:52.0%;padding:.75pt .75pt .75pt .75pt">
+      <p><!--[if gte vml 1]><v:shape id="_x0000_s1027" type="#_x0000_t75" alt=""
+   style='position:absolute;margin-left:72.5pt;margin-top:0;width:112.5pt;
+   height:186.75pt;z-index:2;mso-wrap-distance-left:0;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:0;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:right;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:line' o:allowoverlap="f">
+   <v:imagedata src="images/wpe4.gif"
+    o:href="../../Technical%20Documents/Design%20Documents/images/facebones.gif"/>
+   <w:wrap type="square"/>
+  </v:shape><![endif]-->
+      <img width="150" height="249" src="images/wpe4.gif" align="right" v:shapes="_x0000_s1027">Facial
+      Structure in 3ds Max Necessary for:</p>
+      <p style="margin-right:.5in;margin-left:.5in">Jaw articulation<br>
+      Eye lid articulation<br>
+      Eye Movement</p>
+    </td>
+  </tr>
+</table>
+<p>Results (of the structure to the right) (movie removed for space reasons.<o:p>
+</o:p>
+</p>
+<p>&nbsp;NOTE: This took me approximately 6 hours to do. This is partly due to
+the fact that the automatic tools in character studio are geared to towards
+envelopes that are going to be applied to legs. The face on the other hand is an
+extremely elastic structure with a lot of fine motion and interaction, with very
+little gross distortions. Another issue they came up is that it is much too easy
+to be forced to start from scratch using character studio. In the process of
+animating a character you very often discover a flaw in the mesh that needs to
+be corrected. The correction can actually wind up erasing the vertex weighting
+that has been performed.</p>
+<p>It is possible the could create our own enveloping tools more geared towards
+facial features then large joints. For instance the mouth would be a better
+represented by an oval shape. The first co-ordinate representing the weight of
+the jaw's influence and the 2nd the weight of the static root node.</p>
+<p><!--[if gte vml 1]><v:shape id="_x0000_i1025" type="#_x0000_t75" alt=""
+ style='width:242.25pt;height:130.5pt'>
+ <v:imagedata src="images/wpe5.gif"
+  o:href="../../Technical%20Documents/Design%20Documents/images/mouth.gif"/>
+</v:shape><![endif]-->
+<img width="323" height="174" src="images/wpe5.gif" align="MIDDLE" v:shapes="_x0000_i1025"></p>
+
+</body>
+
+</html>

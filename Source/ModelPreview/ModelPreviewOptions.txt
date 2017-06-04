@@ -1,0 +1,3 @@
+-Jet=.
+-800
+-MeshName=c:\c_prog\jetbeta2\src\Examples\SampleData\Human\kanday_female_heavyfoot.pm
